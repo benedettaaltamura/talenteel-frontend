@@ -1,0 +1,85 @@
+.talent-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+/* COVER */
+.talent-cover {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* BADGES */
+.badge-open {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge-score {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+/* OVERLAY */
+.talent-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85));
+  color: white;
+}
+
+.talent-overlay strong {
+  display: block;
+  font-size: 14px;
+}
+
+.talent-headline {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* META */
+.talent-meta {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #666;
+}
+
+/* TAGS */
+.talent-tags {
+  padding: 0 14px 14px;
+  display: flex;
+  gap: 6px;
+}
+
+.tag {
+  background: #f1f1f1;
+  border-radius: 14px;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+.tag.muted {
+  background: #e5e5e5;
+}

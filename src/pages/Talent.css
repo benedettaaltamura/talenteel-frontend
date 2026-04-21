@@ -1,0 +1,166 @@
+.talent {
+  background: #fafafa;
+  min-height: calc(100vh - 72px);
+  padding: 60px 0;
+}
+
+/* CONTROLS */
+.controls {
+  margin: 32px 0;
+}
+
+.controls input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filters button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 13px;
+}
+
+.filters button.active {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+}
+
+.toggle {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 13px;
+}
+
+/* GRID */
+.talent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.talent-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* VIDEO PREVIEW */
+.talent-image {
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* TAGS */
+.status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.score {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+/* INFO */
+.talent-info {
+  padding: 14px;
+}
+
+.talent-info span {
+  font-size: 13px;
+  color: #666;
+}
+
+
+
+/* ===== TALENT CONTROLS ===== */
+
+.talent-controls {
+  margin: 32px 0;
+}
+
+/* SEARCH ROW */
+.search-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* OPEN TO WORK TOGGLE */
+.open-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.open-toggle .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+}
+
+/* FILTER PILLS */
+.filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.pill.active {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+}
