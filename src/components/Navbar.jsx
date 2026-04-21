@@ -6,13 +6,10 @@ import "./Navbar.css";
 export default function Navbar() {
   return (
     <nav className="navbar">
-
-      {/* SINISTRA – LOGO */}
       <div className="navbar-left">
         <img src={logo} alt="Talenteel logo" className="logo" />
       </div>
 
-      {/* CENTRO – MENU */}
       <ul className="nav-links">
         <li>
           <NavLink to="/" end className="nav-link">
@@ -41,12 +38,9 @@ export default function Navbar() {
         </li>
       </ul>
 
-      {/* DESTRA – CTA */}
       <div className="navbar-right">
         <button className="cta">Join as Talent</button>
       </div>
-
     </nav>
   );
 }
-``

@@ -1,0 +1,54 @@
+.candidate-card-item {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.candidate-top {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.candidate-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.candidate-info span {
+  font-size: 11px;
+  color: #777;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.candidate-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.candidate-status {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.candidate-more {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
