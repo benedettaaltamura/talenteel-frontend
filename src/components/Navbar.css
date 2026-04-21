@@ -1,0 +1,63 @@
+/* CONTAINER NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  width: 100%;
+}
+
+/* LOGO */
+.logo {
+  height: 32px;
+  cursor: pointer;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* LINK BASE */
+.nav-link {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+/* HOVER (come in foto, leggero) */
+.nav-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* LINK ATTIVO (pill scura) */
+.nav-link.active {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* CTA */
+.cta {
+  background: #7b33ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navbar {
+  height: 72px;              /* ✅ altezza fissa */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
