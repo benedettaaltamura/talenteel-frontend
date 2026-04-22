@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-
+import Footer from "../components/Footer";
 import TalentCard from "../components/TalentCard";
 import "./Talent.css";
 
@@ -106,6 +106,7 @@ export default function Talent() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

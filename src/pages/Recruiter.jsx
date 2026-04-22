@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./Recruiter.css";
 import CandidateCard from "../components/CandidateCard";
 
@@ -108,6 +109,7 @@ export default function Recruiter() {
 
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -6,6 +6,8 @@ import OnboardingUser from "./pages/OnboardingUser";
 import OnboardingCompany from "./pages/OnboardingCompany";
 import Recruiter from "./pages/Recruiter";
 import Talent from "./pages/Talent";
+import Challenges from "./pages/Challenges";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -13,14 +15,12 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/feed" element={<div>Feed</div>} />
         <Route path="/talent" element={<Talent />} />
-        <Route path="/challenges" element={<div>Challenges</div>} />
+        <Route path="/challenges" element={<Challenges />} />
         <Route path="/recruiter" element={<Recruiter />} />
         
         <Route path="/register" element={<Register />} />
         <Route path="/onboarding/user" element={<OnboardingUser />} />
         <Route path="/onboarding/company" element={<OnboardingCompany />} />
-        <Route path="/recruiter" element={<Recruiter />} />
-        <Route path="/talent" element={<Talent />} />
       </Routes>
     </BrowserRouter>
   );
