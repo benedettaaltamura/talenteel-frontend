@@ -83,3 +83,48 @@
 .tag.muted {
   background: #e5e5e5;
 }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .talent-cover {
+    height: 240px;
+  }
+
+  .talent-overlay {
+    padding: 12px;
+  }
+
+  .talent-overlay strong {
+    font-size: 13px;
+  }
+
+  .talent-headline {
+    font-size: 11px;
+  }
+
+  .talent-meta {
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+
+  .talent-tags {
+    padding: 0 12px 12px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .talent-cover {
+    height: 200px;
+  }
+
+  .badge-open,
+  .badge-score {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

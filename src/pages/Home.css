@@ -3,6 +3,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .hero {
@@ -30,6 +31,7 @@
   color: #666;
   margin-top: 20px;
 }
+
 .hero-right {
   display: flex;
   gap: 20px;
@@ -176,4 +178,162 @@
   font-size: 13px;
   color: #666;
   margin-top: 4px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+
+  .hero-content {
+    gap: 60px;
+  }
+
+  .hero-left h1 {
+    font-size: 48px;
+  }
+
+  .video-card {
+    width: 160px;
+    height: 300px;
+  }
+
+  .why {
+    padding: 100px 0;
+  }
+
+  .why-header h2 {
+    font-size: 36px;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .registration {
+    padding: 100px 0;
+  }
+
+  .registration-grid {
+    gap: 30px;
+  }
+
+  .registration-card {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 80px 0 40px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 36px;
+  }
+
+  .hero-left p {
+    max-width: none;
+  }
+
+  .hero-right {
+    justify-content: center;
+  }
+
+  .video-card {
+    width: 140px;
+    height: 260px;
+  }
+
+  .video-card.main {
+    transform: translateY(-20px);
+  }
+
+  .why {
+    padding: 80px 0;
+  }
+
+  .why-header {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .why-header h2 {
+    font-size: 28px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .why-card {
+    padding: 24px;
+  }
+
+  .registration {
+    padding: 80px 0;
+  }
+
+  .registration-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .registration-card {
+    padding: 32px;
+  }
+
+  .registration-card h3 {
+    font-size: 24px;
+  }
+
+  .steps li {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 0 30px;
+  }
+
+  .hero-left h1 {
+    font-size: 28px;
+  }
+
+  .video-card {
+    width: 120px;
+    height: 220px;
+  }
+
+  .why {
+    padding: 60px 0;
+  }
+
+  .why-header h2 {
+    font-size: 24px;
+  }
+
+  .registration {
+    padding: 60px 0;
+  }
+
+  .registration-card h3 {
+    font-size: 20px;
+  }
 }

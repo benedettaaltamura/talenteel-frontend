@@ -164,3 +164,51 @@
   color: white;
   border: none;
 }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .talent-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .talent {
+    padding: 40px 0;
+  }
+
+  .talent-controls {
+    margin: 24px 0;
+  }
+
+  .talent-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .open-toggle {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .talent {
+    padding: 20px 0;
+  }
+
+  .talent-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .search-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
