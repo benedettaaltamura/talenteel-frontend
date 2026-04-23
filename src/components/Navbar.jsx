@@ -1,11 +1,21 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo2.png";
 import "./Navbar.css";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -50,7 +60,33 @@ export default function Navbar() {
       </ul>
 
       <div className="navbar-right">
-        <button className="cta">Join as Talent</button>
+        <div className={`dropdown ${isDropdownOpen ? "open" : ""}`} onMouseLeave={closeDropdown}>
+          <button type="button" className="cta" onClick={toggleDropdown} aria-expanded={isDropdownOpen}>
+            Login ▼
+          </button>
+          <div className="dropdown-menu">
+            <button
+              type="button"
+              className="dropdown-item"
+              onClick={() => {
+                navigate('/login');
+                closeDropdown();
+              }}
+            >
+              Talent Login
+            </button>
+            <button
+              type="button"
+              className="dropdown-item"
+              onClick={() => {
+                navigate('/company/login');
+                closeDropdown();
+              }}
+            >
+              Company Login
+            </button>
+          </div>
+        </div>
         <button className="hamburger" onClick={toggleMenu}>
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>
