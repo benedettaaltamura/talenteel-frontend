@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import api from "../api/axios";
+import { AuthContext } from "../auth/AuthContext";
 import Navbar from "../components/Navbar";
 import "./Register.css";
 
 export default function Register() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { register } = useContext(AuthContext);
 
   // Role (pre-filled if coming from Home CTA)
   const [role, setRole] = useState(location.state?.role || "USER");
@@ -40,50 +41,37 @@ export default function Register() {
     setLoading(true);
     setError("");
 
-    try {
-      const payload = {
-        email,
-        password,
-        role,
+    const payload = {
+      email,
+      password,
+      role,
+      first_name: firstName,
+      last_name: lastName,
+      title,
+      bio,
+      skills: "",
+      portfolio_url: portfolioUrl,
+      github_url: githubUrl,
+      figma_url: figmaUrl,
+      company_name: companyName,
+      industry,
+      position,
+      company_size: companySize,
+      website,
+      description: "",
+    };
 
-        ...(role === "USER" && {
-          first_name: firstName,
-          last_name: lastName,
-          title,
-          bio,
-          portfolio_url: portfolioUrl,
-          github_url: githubUrl,
-          figma_url: figmaUrl,
-        }),
+    const result = await register(payload);
+    setLoading(false);
 
-        ...(role === "COMPANY" && {
-          company_name: companyName,
-          industry,
-          position,
-          website,
-          company_size: companySize,
-        }),
-      };
-
-      const res = await api.post("/auth/register/", payload);
-
-      // Save tokens
-      localStorage.setItem("access", res.data.access);
-      localStorage.setItem("refresh", res.data.refresh);
-
-      // Redirect to onboarding
-      if (res.data.role === "USER") {
-        navigate("/onboarding/user");
+    if (result.success) {
+      if (result.user?.role === "USER") {
+        navigate("/user");
       } else {
         navigate("/onboarding/company");
       }
-    } catch (err) {
-      setError(
-        err.response?.data?.detail ||
-          "Something went wrong. Please try again."
-      );
-    } finally {
-      setLoading(false);
+    } else {
+      setError(result.error);
     }
   };
 

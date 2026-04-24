@@ -1,0 +1,81 @@
+.user-dashboard {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 1.8rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-section {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.profile-card,
+.company-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 32px rgba(79, 84, 121, 0.08);
+}
+
+.profile-card h2,
+.company-card h2 {
+  margin-bottom: 1rem;
+}
+
+.profile-card p,
+.company-item p {
+  margin: 0.65rem 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.profile-links a {
+  color: #2f4f9f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.company-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid #e9ecef;
+  padding: 1rem 0;
+}
+
+.company-item:first-of-type {
+  border-top: none;
+}
+
+.company-role,
+.company-location {
+  margin: 0.35rem 0;
+  color: #555;
+}
+
+.primary.small {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .profile-section {
+    grid-template-columns: 1fr;
+  }
+}
