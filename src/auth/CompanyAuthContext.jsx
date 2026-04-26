@@ -59,7 +59,7 @@ export function CompanyAuthProvider({ children }) {
       localStorage.setItem('companyAuth', JSON.stringify(companyData));
       return { success: true };
     }
-    return { success: false, error: 'Email o password non corretti' };
+    return { success: false, error: 'Email or password are incorrect' };
   };
 
   const logout = () => {

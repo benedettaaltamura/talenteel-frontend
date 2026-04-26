@@ -21,9 +21,7 @@ export default function Register() {
   const [lastName, setLastName] = useState("");
   const [title, setTitle] = useState("");
   const [bio, setBio] = useState("");
-  const [portfolioUrl, setPortfolioUrl] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
-  const [figmaUrl, setFigmaUrl] = useState("");
 
   // Company fields
   const [companyName, setCompanyName] = useState("");
@@ -50,9 +48,7 @@ export default function Register() {
       title,
       bio,
       skills: "",
-      portfolio_url: portfolioUrl,
       github_url: githubUrl,
-      figma_url: figmaUrl,
       company_name: companyName,
       industry,
       position,

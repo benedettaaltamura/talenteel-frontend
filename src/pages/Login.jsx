@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const { login } = useContext(AuthContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("talent@example.com");
+  const [password, setPassword] = useState("password123");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -33,7 +33,8 @@ export default function Login() {
     <div className="register">
       <div className="register-card">
         <h1>Talent Login</h1>
-        <p>Accedi al tuo profilo talento e invia candidature alle aziende.</p>
+        <p>Log in to your talent profile and submit applications to companies.</p>
+        <p className="hint">Sample user credentials are already filled in for quick access.</p>
         <form onSubmit={handleSubmit}>
           <div className="field">
             <label>Email</label>
@@ -60,7 +61,7 @@ export default function Login() {
           {error && <p className="error">{error}</p>}
 
           <button className="primary full" type="submit" disabled={loading}>
-            {loading ? "Accesso in corso…" : "Accedi"}
+            {loading ? "Logging in…" : "Login"}
           </button>
         </form>
       </div>

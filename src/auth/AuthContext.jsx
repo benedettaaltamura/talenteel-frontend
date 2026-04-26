@@ -17,11 +17,59 @@ const DEFAULT_USERS = [
       title: "Product Designer",
       bio: "Creo esperienze digitali che funzionano per persone e business.",
       skills: "Design, Figma, User Research",
-      portfolio_url: "https://behance.net/lucarossi",
       github_url: "https://github.com/lucarossi",
-      figma_url: "https://www.figma.com/@luca",
     },
     company_profile: {},
+    applications: [
+      {
+        id: 101,
+        offer_id: 1,
+        role: "UX Designer",
+        company: "Creativa",
+        status: "Interview proposed",
+        recruiter_note: "We'd like to discuss your case study and next steps in a short call.",
+      },
+      {
+        id: 102,
+        offer_id: 2,
+        role: "Product Designer",
+        company: "Pulse Labs",
+        status: "Rejected",
+        recruiter_note: "Strong fit, but the team chose a candidate with deeper mobile experience.",
+      },
+      {
+        id: 103,
+        offer_id: 3,
+        role: "Visual Designer",
+        company: "Studio Hive",
+        status: "Accepted",
+        recruiter_note: "Your portfolio impressed the hiring team — welcome onboard!",
+      },
+    ],
+    challenge_history: [
+      {
+        id: 201,
+        challenge_id: 1,
+        title: "Design Sprint Challenge",
+        company: "Talentel",
+        status: "Completed",
+        place: 2,
+        total_participants: 24,
+        finished_at: "Apr 12, 2026",
+        leaderboard_note: "Top 10%",
+      },
+      {
+        id: 202,
+        challenge_id: 2,
+        title: "UX Case Study",
+        company: "Neon Labs",
+        status: "Completed",
+        place: 5,
+        total_participants: 38,
+        finished_at: "Mar 27, 2026",
+        leaderboard_note: "Strong finish",
+      },
+    ],
   },
 ];
 
@@ -91,7 +139,7 @@ export const AuthProvider = ({ children }) => {
     );
 
     if (!found) {
-      return { success: false, error: "Email o password non corretti." };
+      return { success: false, error: "Email or password are incorrect." };
     }
 
     const publicUser = sanitizeUser(found);
@@ -105,13 +153,37 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem(LOCAL_CURRENT_USER_KEY);
   };
 
+  const updateUser = async (updatedUser) => {
+    const users = loadUsers();
+    const existingIndex = users.findIndex(
+      (item) => item.email.toLowerCase() === updatedUser.email.toLowerCase()
+    );
+
+    if (existingIndex >= 0) {
+      const existing = users[existingIndex];
+      users[existingIndex] = {
+        ...existing,
+        ...updatedUser,
+        password: existing.password,
+      };
+    } else {
+      users.push(updatedUser);
+    }
+
+    saveUsers(users);
+    const publicUser = sanitizeUser(users[existingIndex] || updatedUser);
+    setUser(publicUser);
+    saveCurrentUser(publicUser);
+    return { success: true, user: publicUser };
+  };
+
   const register = async (payload) => {
     const users = loadUsers();
     const exists = users.some(
       (item) => item.email.toLowerCase() === payload.email.toLowerCase()
     );
     if (exists) {
-      return { success: false, error: "Email già registrata." };
+      return { success: false, error: "Email already registered." };
     }
 
     const newUser = {
@@ -125,9 +197,7 @@ export const AuthProvider = ({ children }) => {
         title: payload.title || "",
         bio: payload.bio || "",
         skills: payload.skills || "",
-        portfolio_url: payload.portfolio_url || "",
         github_url: payload.github_url || "",
-        figma_url: payload.figma_url || "",
       },
       company_profile: {
         company_name: payload.company_name || "",
@@ -137,6 +207,8 @@ export const AuthProvider = ({ children }) => {
         description: payload.description || "",
         website: payload.website || "",
       },
+      applications: [],
+      challenge_history: [],
     };
 
     users.push(newUser);
@@ -150,7 +222,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register, loading }}>
+    <AuthContext.Provider value={{ user, login, logout, register, updateUser, loading }}>
       {children}
     </AuthContext.Provider>
   );

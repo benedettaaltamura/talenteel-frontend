@@ -45,8 +45,8 @@ export default function CompanyLogin() {
       <Navbar />
       <div className="company-login-container">
         <div className="login-card">
-          <h1>Company Access</h1>
-          <p>Accedi come azienda per gestire le tue challenge e candidati</p>
+          <h1>Company Login</h1>
+          <p>Log in as a company to manage challenges and review candidates.</p>
 
           {error && <div className="error-message">{error}</div>}
 
@@ -76,7 +76,7 @@ export default function CompanyLogin() {
             </div>
 
             <button type="submit" className="login-button" disabled={loading}>
-              {loading ? 'Accesso in corso...' : 'Accedi'}
+              {loading ? 'Logging in...' : 'Login'}
             </button>
           </form>
 

@@ -35,33 +35,35 @@ export default function Navbar() {
         <img src={logo} alt="Talenteel logo" className="logo" />
       </div>
 
-      <ul className="nav-links">
-        <li>
-          <NavLink to="/" end className="nav-link">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/feed" className="nav-link">
-            Feed
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/talent" className="nav-link">
-            Talent
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/challenges" className="nav-link">
-            Challenges
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/recruiter" className="nav-link">
-            Recruiter
-          </NavLink>
-        </li>
-      </ul>
+      {!user && !company && (
+        <ul className="nav-links">
+          <li>
+            <NavLink to="/" end className="nav-link">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/feed" className="nav-link">
+              Feed
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/talent" className="nav-link">
+              Talent
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/challenges" className="nav-link">
+              Challenges
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/recruiter" className="nav-link">
+              Recruiter
+            </NavLink>
+          </li>
+        </ul>
+      )}
 
       <div className="navbar-right">
         {(user || company) ? (
@@ -72,7 +74,7 @@ export default function Navbar() {
                 className="cta"
                 onClick={() => navigate("/user")}
               >
-                Profilo
+                Profile
               </button>
             )}
             {company && (
@@ -87,9 +89,9 @@ export default function Navbar() {
             <button type="button" className="cta secondary" onClick={() => {
               if (user) logoutUser();
               if (company) logoutCompany();
-              navigate(user ? "/login" : "/company/login");
+              navigate('/');
             }}>
-              Esci
+              Log out
             </button>
           </div>
         ) : (

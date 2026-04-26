@@ -1,5 +1,5 @@
 // src/App.jsx
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import { CompanyAuthProvider } from "./auth/CompanyAuthContext";
 import Home from "./pages/Home";
@@ -13,6 +13,11 @@ import CompanyLogin from "./pages/CompanyLogin";
 import CompanyDashboard from "./pages/CompanyDashboard";
 import Login from "./pages/Login";
 import UserDashboard from "./pages/UserDashboard";
+import UserProfile from "./pages/UserProfile";
+import UserActivities from "./pages/UserActivities";
+import UserCompanies from "./pages/UserCompanies";
+import UserChallenges from "./pages/UserChallenges";
+import UserStats from "./pages/UserStats";
 
 export default function App() {
   return (
@@ -21,7 +26,6 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/feed" element={<div>Feed</div>} />
             <Route path="/talent" element={<Talent />} />
             <Route path="/challenges" element={<Challenges />} />
             <Route path="/recruiter" element={<Recruiter />} />
@@ -33,7 +37,15 @@ export default function App() {
             <Route path="/company/login" element={<CompanyLogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/company/dashboard" element={<CompanyDashboard />} />
-            <Route path="/user" element={<UserDashboard />} />
+
+            <Route path="/user" element={<UserDashboard />}>
+              <Route index element={<Navigate to="profile" replace />} />
+              <Route path="profile" element={<UserProfile />} />
+              <Route path="activities" element={<UserActivities />} />
+              <Route path="companies" element={<UserCompanies />} />
+              <Route path="challenges" element={<UserChallenges />} />
+              <Route path="stats" element={<UserStats />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </CompanyAuthProvider>

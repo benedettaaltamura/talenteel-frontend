@@ -16,9 +16,9 @@ export default function CompanyDashboard() {
         <Navbar />
         <div className="company-dashboard-container">
           <div className="not-logged-in">
-            <h2>Accedi per continuare</h2>
+            <h2>Please log in to continue</h2>
             <button onClick={() => navigate('/company/login')} className="primary-button">
-              Vai al login
+              Go to login
             </button>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function CompanyDashboard() {
             </div>
           </div>
           <button onClick={handleLogout} className="logout-button">
-            Esci
+            Log out
           </button>
         </div>
 
@@ -53,19 +53,19 @@ export default function CompanyDashboard() {
             className={`nav-tab ${activeTab === 'overview' ? 'active' : ''}`}
             onClick={() => setActiveTab('overview')}
           >
-            Panoramica
+            Overview
           </button>
           <button
             className={`nav-tab ${activeTab === 'candidates' ? 'active' : ''}`}
             onClick={() => setActiveTab('candidates')}
           >
-            Candidati
+            Candidates
           </button>
           <button
             className={`nav-tab ${activeTab === 'challenges' ? 'active' : ''}`}
             onClick={() => setActiveTab('challenges')}
           >
-            Le mie Challenge
+            My Challenges
           </button>
         </div>
 
@@ -83,25 +83,25 @@ export default function CompanyDashboard() {
 function OverviewTab({ company }) {
   return (
     <div className="tab-content">
-      <h2>Panoramica Azienda</h2>
+      <h2>Company Overview</h2>
       
       <div className="overview-grid">
         <div className="overview-card">
-          <h3>Info Generali</h3>
+          <h3>Key details</h3>
           <div className="info-group">
-            <label>Nome Azienda</label>
+            <label>Company name</label>
             <p>{company.name}</p>
           </div>
           <div className="info-group">
-            <label>Industria</label>
+            <label>Industry</label>
             <p>{company.industry}</p>
           </div>
           <div className="info-group">
-            <label>Locazione</label>
+            <label>Location</label>
             <p>{company.location}</p>
           </div>
           <div className="info-group">
-            <label>Dipendenti</label>
+            <label>Employees</label>
             <p>{company.employees}</p>
           </div>
           <div className="info-group">
@@ -111,27 +111,27 @@ function OverviewTab({ company }) {
         </div>
 
         <div className="overview-card">
-          <h3>Descrizione</h3>
+          <h3>Description</h3>
           <p className="description">{company.description}</p>
         </div>
 
         <div className="overview-card stats-card">
-          <h3>Statistiche</h3>
+          <h3>Stats</h3>
           <div className="stat">
             <span className="stat-value">8</span>
-            <span className="stat-label">Challenge Pubblicate</span>
+            <span className="stat-label">Challenges posted</span>
           </div>
           <div className="stat">
             <span className="stat-value">247</span>
-            <span className="stat-label">Candidature Ricevute</span>
+            <span className="stat-label">Applications received</span>
           </div>
           <div className="stat">
             <span className="stat-value">32</span>
-            <span className="stat-label">Candidati in Valutazione</span>
+            <span className="stat-label">Candidates reviewing</span>
           </div>
           <div className="stat">
             <span className="stat-value">5</span>
-            <span className="stat-label">Colloqui Programmati</span>
+            <span className="stat-label">Interviews scheduled</span>
           </div>
         </div>
       </div>
@@ -177,7 +177,7 @@ function CandidatesTab({ company }) {
 
   return (
     <div className="tab-content">
-      <h2>Candidati Idonei per le tue Posizioni</h2>
+      <h2>Best candidate matches</h2>
       <div className="candidates-list">
         {candidates.map((candidate) => (
           <div key={candidate.id} className="candidate-item">
@@ -188,7 +188,7 @@ function CandidatesTab({ company }) {
               <p className="candidate-status">{candidate.status}</p>
             </div>
             <div className="candidate-score">{candidate.score}</div>
-            <button className="view-button">Visualizza</button>
+            <button className="view-button">View</button>
           </div>
         ))}
       </div>
@@ -226,8 +226,8 @@ function ChallengesTab({ company }) {
 
   return (
     <div className="tab-content">
-      <h2>Le Mie Challenge</h2>
-      <button className="create-challenge-button">+ Crea Nuova Challenge</button>
+      <h2>My Challenges</h2>
+      <button className="create-challenge-button">+ Create new challenge</button>
       
       <div className="challenges-list">
         {myChallenges.map((challenge) => (
@@ -240,21 +240,21 @@ function ChallengesTab({ company }) {
             </div>
             <div className="challenge-meta">
               <div className="meta-item">
-                <span className="label">Ruolo Richiesto</span>
+                <span className="label">Required role</span>
                 <span className="value">{challenge.role}</span>
               </div>
               <div className="meta-item">
-                <span className="label">Candidature</span>
+                <span className="label">Applications</span>
                 <span className="value">{challenge.submissions}</span>
               </div>
               <div className="meta-item">
-                <span className="label">Giorni Rimasti</span>
-                <span className="value">{challenge.daysLeft > 0 ? `${challenge.daysLeft}d` : 'Concluso'}</span>
+                <span className="label">Days left</span>
+                <span className="value">{challenge.daysLeft > 0 ? `${challenge.daysLeft}d` : 'Closed'}</span>
               </div>
             </div>
             <div className="challenge-actions">
-              <button className="action-button">Visualizza Candidature</button>
-              <button className="action-button secondary">Modifica</button>
+              <button className="action-button">View submissions</button>
+              <button className="action-button secondary">Edit</button>
             </div>
           </div>
         ))}
