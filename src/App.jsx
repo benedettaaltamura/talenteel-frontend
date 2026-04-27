@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import { CompanyAuthProvider } from "./auth/CompanyAuthContext";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import OnboardingUser from "./pages/OnboardingUser";
@@ -24,6 +25,7 @@ export default function App() {
     <AuthProvider>
       <CompanyAuthProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/talent" element={<Talent />} />
